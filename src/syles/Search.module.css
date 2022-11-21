@@ -1,0 +1,22 @@
+.searchCSSModule {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.searchCategory {
+    display: flex;
+    flex-direction: row;
+    min-height: 50px;
+    background: #121212;
+    margin-top: 15px;
+    margin-left: 30px;
+}
+
+.containerForRender {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+    margin-top: 30px;
+}

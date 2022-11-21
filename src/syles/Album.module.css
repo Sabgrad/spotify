@@ -1,0 +1,110 @@
+/* main  */
+
+.albumContainerMain {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: linear-gradient(white, #121212);
+    height: clamp(500px ,500px, 100%);
+}
+
+/* header */
+
+.containerForHeader {
+    width: 100%;
+    min-height: 300px;
+}
+
+.header {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+}
+
+.HeaderImgCont {
+    margin-left: 30px;
+}
+
+.HeaderImg {
+    height: 240px;
+    width: 240px;
+}
+
+.AlbumInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 240px;
+    margin-left: 30px;
+    margin-right: 30px;
+    width: 100%;
+}
+
+.AlbumType {
+    font-weight: 600;
+    font-size: 2em;
+}
+
+.AlbumName {
+    font-weight: 600;
+    font-size: 4em;
+}
+
+.ArtistName {
+    font-weight: 600;
+}
+
+.YearAlbum {
+    margin-left: 10px;
+    font-weight: 400;
+}
+
+.AmountTracks {
+    margin-left: 10px;
+    font-weight: 400;
+}
+
+.DurationAlbum {
+    margin-left: 5px;
+    color: #C9BBCB;
+}
+
+.TopText {
+    margin-bottom: 20px;
+}
+
+.MiddleText {
+    margin-bottom: 20px;
+}
+
+/* SONG'S  */
+
+.containerForRenderSongs {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-bottom: 30px;
+}
+
+/* Copyright's */
+
+.FooterCont {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding-bottom: 30px;
+}
+
+.CopyrightOwner {
+    align-items: center;
+}
+
+.CopyrightType {
+    font-size: 0.7em;
+}
+
+.CopyrightText {
+    font-size: 0.7em;
+}

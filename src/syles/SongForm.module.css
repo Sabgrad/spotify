@@ -1,0 +1,129 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-left: 30px;
+    margin-right: 30px;
+    align-items: center;
+    height: 60px;
+    min-width: 500px;
+    border-radius: 5px;
+}
+
+.container:hover {
+    background: #5A5A5A;
+}
+
+/* song number  */
+
+.songNumberContainer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    width: 30px;
+}
+
+.songNumberSpan {
+    text-align: right;
+}
+
+/* images */
+
+.imgContainer {
+    height: 50px;
+    width: 50px;
+    margin-left: 15px;
+}
+
+.songImage {
+    height: 50px;
+    width: 50px;
+}
+
+/* name song and artist's on song  */
+
+.nameSongContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50px;
+    width: 55%;
+    margin-left: 15px;
+    min-width: 180px;
+}
+
+.nameSongSpan {
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nameArtistSpan {
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+/* name album */
+
+.albumContainer {
+    display: flex;
+    width: 45%;
+    min-width: 150px;
+}
+
+.albumSpan {
+    margin-left: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* song duration */
+
+.durationContainer {
+    width: 45px;
+}
+
+/* date added */
+
+.dateAddedContainer {
+    width: 20%;
+}
+
+@media (max-width: 1000px) {
+    .dateAddedContainer {
+        display: none;
+    }
+}
+
+/* interaction with form */
+
+.interactionContainer {
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 20px;
+    height: 50%;
+}
+
+.interactionButton {
+    border: none;
+    background: none;
+    background-image: url('../media/more.svg');
+    background-size: 100% 100%;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.container:hover .interactionButton {
+    display: block;
+}

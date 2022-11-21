@@ -1,0 +1,9 @@
+.mainWindow {
+    display: flex;
+    max-width: 100%;
+    background: #121212;
+    height: calc(100vh - 135px);
+    overflow: auto;
+    grid-column-start: 2;
+    grid-column-end: 3;
+}

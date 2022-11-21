@@ -1,0 +1,51 @@
+.leftMenu {
+    display: flex;
+    flex-direction: column;
+    background: #000000;
+    max-height: calc(100vh - 75px);
+    height: 100%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+
+.LogoCont {
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    padding-left: 30px;
+    height: 70px;
+    justify-content: flex-end;
+}
+.Logo {
+    width: 130px;
+    height: 40px;
+}
+
+.LeftNavigation {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    
+}
+
+a {
+    font-weight: 600;
+    color: #B3B3B3;
+    margin-top: 10px;
+}
+
+a:hover {
+    color: #FFFFFF;
+}
+
+.UserPlayLists {
+    border-top: 1px solid #282828;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    overflow: auto;
+}

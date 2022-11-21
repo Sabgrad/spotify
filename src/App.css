@@ -1,0 +1,24 @@
+* {
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+    font-family: var(--font-family,CircularSp,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,sans-serif));
+    font-weight: 400;
+    color: #FFFF;
+    text-decoration: none;
+    
+    
+}
+
+.App {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    align-items: center;
+    justify-content: center;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
