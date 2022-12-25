@@ -42,10 +42,34 @@ a:hover {
 }
 
 .UserPlayLists {
+    padding-top: 10px;
     border-top: 1px solid #282828;
     margin-top: 10px;
     display: flex;
     flex-direction: column;
     padding-left: 30px;
     overflow: auto;
+}
+
+.playlist_name_cont {
+    margin-bottom: 10px;
+}
+
+.playlist_name {
+    cursor: default;
+    font-weight: 600;
+    color: #B3B3B3;
+    border: none; 
+    background: none;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left;
+}
+
+.playlist_name:hover {
+    color: #FFFFFF;
+    cursor: pointer;
 }

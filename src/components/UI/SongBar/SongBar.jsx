@@ -19,6 +19,8 @@ const SongBar = () => {
 
     const audioElem = useRef()
 
+    // console.log(dataAudio)
+
     useEffect(() => {
         dataAudio.forEach((song, index) =>  {
             if(audioLink === song) {

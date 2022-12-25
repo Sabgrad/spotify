@@ -98,5 +98,19 @@ export default class SpotifyService {
             }
         })
     }
+
+    static async addItemToPlaylist(idPlaylist, idTrack, token) {
+        await axios.post(`https://api.spotify.com/v1/playlists/${idPlaylist}/tracks`, {
+            uris : [
+                `spotify:track:${idTrack}`
+            ], 
+                position: 0
+            
+        }, {
+            headers : {
+                Authorization: `Bearer ${token}`,
+            }
+        }) 
+    }
   
 }

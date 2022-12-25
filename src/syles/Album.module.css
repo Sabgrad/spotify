@@ -1,6 +1,6 @@
 /* main  */
 
-.albumContainerMain {
+.album_cont {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -10,7 +10,7 @@
 
 /* header */
 
-.containerForHeader {
+.cont_for_header {
     width: 100%;
     min-height: 300px;
 }
@@ -22,16 +22,16 @@
     align-items: center;
 }
 
-.HeaderImgCont {
+.header_img_cont {
     margin-left: 30px;
 }
 
-.HeaderImg {
+.header_img {
     height: 240px;
     width: 240px;
 }
 
-.AlbumInfo {
+.album_info {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -41,46 +41,46 @@
     width: 100%;
 }
 
-.AlbumType {
+.album_type {
     font-weight: 600;
     font-size: 2em;
 }
 
-.AlbumName {
+.album_name {
     font-weight: 600;
     font-size: 4em;
 }
 
-.ArtistName {
+.artist_name {
     font-weight: 600;
 }
 
-.YearAlbum {
+.year_album {
     margin-left: 10px;
     font-weight: 400;
 }
 
-.AmountTracks {
+.amount_tracks {
     margin-left: 10px;
     font-weight: 400;
 }
 
-.DurationAlbum {
+.duration_album {
     margin-left: 5px;
     color: #C9BBCB;
 }
 
-.TopText {
+.top_text {
     margin-bottom: 20px;
 }
 
-.MiddleText {
+.middle_text {
     margin-bottom: 20px;
 }
 
 /* SONG'S  */
 
-.containerForRenderSongs {
+.cont_for_render_songs {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -89,7 +89,7 @@
 
 /* Copyright's */
 
-.FooterCont {
+.footer_cont {
     display: flex;
     flex-direction: column;
     margin-left: 30px;
@@ -97,14 +97,14 @@
     padding-bottom: 30px;
 }
 
-.CopyrightOwner {
+.copyright_owner {
     align-items: center;
 }
 
-.CopyrightType {
+.copyright_type {
     font-size: 0.7em;
 }
 
-.CopyrightText {
+.copyright_text {
     font-size: 0.7em;
 }

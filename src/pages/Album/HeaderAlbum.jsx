@@ -5,53 +5,48 @@ import styles from '../../syles/Album.module.css'
 
 const HeaderAlbum = (props) => {
 
+    const {artist, durationAlbum, image, name, releasedate, totaltrack, type, typealbum} = props
+
     const ReleaseDate = () => {
-        if(props.type === 'album')  return(
-            <span className={styles.YearAlbum}>
-                {props.releasedate}
+        if(type === 'album')  return(
+            <span className={styles.year_album}>
+                {releasedate}
             </span>
         )
     }
 
     return (
         <div className={styles.header}>
-
-            <div className={styles.HeaderImgCont}>
-                <img className={styles.HeaderImg} 
-                    src={props.image !== undefined ? props.image : noimage} 
+            <div className={styles.header_img_cont}>
+                <img className={styles.header_img} 
+                    src={image !== undefined ? image : noimage} 
                     alt=""
                 />
             </div>
-
-            <div className={styles.AlbumInfo}>
-
-                <div className={styles.TopText}>
-                    <span className={styles.AlbumType}>
-                        {props.typealbum}
+            <div className={styles.album_info}>
+                <div className={styles.top_text}>
+                    <span className={styles.album_type}>
+                        {typealbum}
                     </span>
                 </div>
-
-                <div className={styles.MiddleText}>
-                    <span className={styles.AlbumName}>
-                        {props.name}
+                <div className={styles.diddle_text}>
+                    <span className={styles.album_name}>
+                        {name}
                     </span>
                 </div>
-
-                <div className={styles.BottomText}>
-                    <span className={styles.ArtistName}>
-                        {props.artist}
+                <div className={styles.bottom_text}>
+                    <span className={styles.artist_name}>
+                        {artist}
                     </span>
                     {ReleaseDate()}
-                    <span className={styles.AmountTracks}>
-                        {props.totaltrack}
+                    <span className={styles.amount_tracks}>
+                        {totaltrack}
                     </span>
-                    <span className={styles.DurationAlbum}>
-                        {duration(props.duration)}
+                    <span className={styles.duration_album}>
+                        {duration(durationAlbum)}
                     </span>
                 </div>
-
             </div>
-            
         </div>
     )
 }

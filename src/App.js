@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 // import AppRouter from './components/AppRouter';
-import { AuthContext, DataWithAudio, LinkOnAudio } from './context/context';
+import { AuthContext, DataWithAudio, LinkOnAudio, UserPlayLists } from './context/context';
 import LeftMenu from './components/UI/LeftMenu/LeftMenu';
 import MainWindow from './components/UI/MainWindow/MainWindow';
 import SongBar from './components/UI/SongBar/SongBar';
@@ -13,6 +13,7 @@ function App() {
     const [token, setToken] = useState('')
     const [audioLink, setAudioLink] = useState('')
     const [dataAudio, setDataAudio] = useState([])
+    const [userPlaylists, setUserPlaylists] = useState([])
 
     return (
         <div className="App">
@@ -28,6 +29,10 @@ function App() {
                 dataAudio,
                 setDataAudio
             }}>
+            <UserPlayLists.Provider value ={{
+                userPlaylists,
+                setUserPlaylists
+            }}>
                 <BrowserRouter>
                     <LeftMenu/>
                     <TopMenu/>
@@ -35,8 +40,9 @@ function App() {
                     <SongBar/>
                     {/* <AppRouter/> */}
                 </BrowserRouter>
-                </DataWithAudio.Provider>
-                </LinkOnAudio.Provider>
+            </UserPlayLists.Provider>
+            </DataWithAudio.Provider>
+            </LinkOnAudio.Provider>
             </AuthContext.Provider>
         </div>
     );

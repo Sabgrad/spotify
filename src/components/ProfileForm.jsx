@@ -13,7 +13,8 @@ const ProfileForm = ({artist, toptracks, artistAlbum, artistSingle}) => {
                 index={index}
                 image={toptracks.album.images[0]?.url}
                 name={toptracks.name}
-                artist={toptracks.artists.map((artists) => artists.name + ' ')}
+                artist={toptracks.artists.map((artists) => artists.name)}
+                artistid={toptracks.artists.map((artists) => artists.id)}
                 album={toptracks.album.name}
                 songduration={toptracks.duration_ms}
                 audio={toptracks.preview_url}

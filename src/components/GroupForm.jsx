@@ -28,12 +28,12 @@ const GroupForm = ({children, artistAlbum, artistSingle}) => {
     }
 
     return (
-        <div className={styles.GroupForm}>
-            <div className={styles.GroupTopText}>
-                <span className={styles.GroupName}>{children}</span>
-                <button className={styles.OpenAllGroup}>Open All</button>
+        <div className={styles.group_form}>
+            <div className={styles.group_top_text}>
+                <span className={styles.group_name}>{children}</span>
+                <button className={styles.open_all}>Open All</button>
             </div>
-            <div className={styles.ContainerForFF}>
+            <div className={styles.cont_for_ff}>
                 {renderFacialForm()}
             </div>
         </div>

@@ -67,9 +67,11 @@ const Album = () => {
             <SongForm 
                 index={index} 
                 key={song.track ? song.track.id + index : song.id + index}
+                trackid={song.track ? song.track.id : song.id}
                 image={song.track  ? song.track.album.images[0]?.url : dataSpotify.images[0]?.url}
                 name={song.track ? song.track.name : song.name}
-                artist={song.track ? song.track?.artists.map(artist => artist.name + ' ') : song.artists.map(artist => artist.name + ' ')}
+                artist={song.track ? song.track?.artists.map(artist => artist.name) : song.artists?.map(artist => artist.name)}
+                artistid={song.track ? song.track.artists.map(artistid => artistid.id) : song.artists.map(artistid => artistid.id)}
                 album={song.track ? song.track.album.name : dataSpotify.name}
                 dateadd={song.track && song.added_at}
                 songduration={song.track ? song.track.duration_ms : song.duration_ms}
@@ -82,8 +84,8 @@ const Album = () => {
        return  <div></div>
     } else {
         return (
-            <div className={styles.albumContainerMain}>
-                <div className={styles.containerForHeader}>
+            <div className={styles.album_cont}>
+                <div className={styles.cont_for_header}>
                     <HeaderAlbum
                         image={dataSpotify.images[0]?.url}
                         typealbum={type === 'album'
@@ -93,13 +95,13 @@ const Album = () => {
                         artist={type === 'album' 
                         ? dataSpotify.artists.map(artist => artist.name + '') 
                         : dataSpotify.owner.display_name}
-                        totaltrack={dataSpotify.total_tracks + ' song'}
-                        duration={albumDuration}
+                        totaltrack={(dataSpotify.total_tracks ?  dataSpotify.total_tracks : dataSpotify.tracks.total) + ' song'}
+                        durationAlbum={albumDuration}
                         type={type}
                         releasedate={dataSpotify.release_date?.substring(0,4)}
                     />
                 </div>
-                <div className={styles.containerForRenderSongs}>
+                <div className={styles.cont_for_render_songs}>
                     {renderSong()}
                 </div>
                 {type === 'album' && 

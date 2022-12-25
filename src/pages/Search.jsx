@@ -9,7 +9,7 @@ import SpotifyService from "../API/SpotifyService";
 const Search = () => {
 
     const stylePressBtn = {
-        background: 'white', 
+        background: '#FFFFFF', 
         color: 'black'
     }
 
@@ -55,9 +55,11 @@ const Search = () => {
             <SongForm 
                 index={index}
                 key={track.id}
+                trackid={track.id}
                 image={track.album.images[0]?.url}
                 name={track.name}
-                artist={track.artists.map((artists) => artists.name + ' ')}
+                artist={track.artists.map((artists) => artists.name)}
+                artistid={track.artists.map((artists) => artists.id)}
                 album={track.album.name}
                 songduration={track.duration_ms}
                 audio={track.preview_url}
@@ -83,7 +85,7 @@ const Search = () => {
             id={obj.id}
             type={typeQuery}
             request={obj.href}
-            />  
+            />
         )
     }
 

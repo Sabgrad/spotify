@@ -1,0 +1,46 @@
+.cont {
+    background-color: #282828;
+    position: absolute;
+    display: flex;
+    right: 20px;
+    bottom: 75%;
+}
+
+.cont ul {
+    background-color: #282828;
+    list-style-type: none;
+}
+
+.cont span {
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.main_ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.category_title {
+    position: relative;
+}
+
+.sub_ul {
+    position: absolute;
+    right: 100%;
+    top: 0%;
+    display: flex;
+    flex-direction: row;
+    display: none;
+    cursor: pointer;
+}
+
+.category_title:hover .sub_ul {
+    display: block;
+    cursor: pointer;
+}
+
+.category_title li {
+    white-space: nowrap;
+}
+
