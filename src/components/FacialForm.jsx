@@ -5,14 +5,14 @@ import noimage from '../media/noimage.png';
 
 const FacialForm = (props) => {
 
-    const {id, images, toptext, bottomtext} = props;
-    
+    const {id, images, toptext, bottomtext, type} = props;
+
     const router = useNavigate()
 
     const handleClick = (id) => {
-        if(props.type === 'album') { router(`/album/${id}`); }
-        if(props.type === 'playlist') { router(`/playlist/${id}`); }
-        if(props.type === 'artist') { router(`/artist/${id}`)}
+        if(type === 'album') { router(`/album/${id}`); }
+        if(type === 'playlist') { router(`/playlist/${id}`); }
+        if(type === 'artist') { router(`/artist/${id}`)}
     }
 
     return(
@@ -24,7 +24,7 @@ const FacialForm = (props) => {
             /> 
             </div>
             <span className={styles.top_text}>
-                    {toptext}
+                {toptext}
             </span>
             <span className={styles.bottom_text}>
                 {bottomtext}
