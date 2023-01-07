@@ -1,11 +1,8 @@
 import React, { useEffect, useContext, useState} from "react";
-
 import { useParams } from "react-router-dom";
-
 import SpotifyService from "../../API/SpotifyService";
-import { AuthContext, DataWithAudio } from "../../context/context";
+import { AuthContext, DataWithAudio, LinkOnAudio } from "../../context/context";
 import styles from '../../syles/Album.module.css';
-
 import SongForm from "../../components/SongForm";
 import HeaderAlbum from "./HeaderAlbum";
 import FooterAlbum from "./FooterAlbum";
@@ -43,6 +40,7 @@ const Album = () => {
             fetchAlbumOrPlayist('playlists');
             setType('playlist')
         }
+
     }, [params.id])
 
     useEffect(() => {
@@ -65,7 +63,7 @@ const Album = () => {
     const renderSong = () => {
         return dataSpotify.tracks?.items.map((song, index) =>
             <SongForm 
-                index={index} 
+                index={index}
                 key={song.track ? song.track.id + index : song.id + index}
                 trackid={song.track ? song.track.id : song.id}
                 image={song.track  ? song.track.album.images[0]?.url : dataSpotify.images[0]?.url}

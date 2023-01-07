@@ -10,7 +10,7 @@ const Search = () => {
 
     const stylePressBtn = {
         background: '#FFFFFF', 
-        color: 'black'
+        color: 'black',
     }
 
     const {token} = useContext(AuthContext)
@@ -72,6 +72,7 @@ const Search = () => {
             <FacialForm 
             key={obj.id}
             toptext={obj.name}
+            tokenprops={token}
             bottomtext={
             typeQuery === 'album' ?
             obj.release_date?.substring(0,4) + ' - ' + obj.artists.map((artist) =>' ' + artist.name) 

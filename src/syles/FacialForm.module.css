@@ -24,6 +24,7 @@
     align-items: center;
     margin-top: 15px;
     margin-left: 15px;
+    position: relative;
 }
 
 /* image's */
@@ -61,4 +62,83 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+/* button play */
+/* make it a reusable component */
+
+.play_playlist_song {
+    position: absolute;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    border: none;
+    background-color: transparent;
+    display: grid;
+    place-items: center;
+    bottom: 5px;
+    right: 10px;
+    box-shadow: 0 10px 20px transparent;
+    transition-duration: 0.3s;
+    transition-property: background-color, bottom, box-shadow;
+}
+
+.triangle {
+    width: 0;
+    height: 0;
+    border-top: 0.7rem solid transparent;
+    border-left: 1.16rem solid transparent;
+    border-bottom: 0.7rem solid transparent;
+    margin-left: 0.24rem;
+    transition-duration: 0.3s;
+    transition-property: border-left;
+}
+
+.facial_form:hover .play_playlist_song {
+    bottom: 10px;
+    background-color: #1ED760;
+    box-shadow: 0 10px 20px rgb(0, 0, 0, 0.5);
+}
+
+.facial_form:hover .triangle {
+    border-left: 1.16rem solid #000000;
+}
+
+/* current played list */
+
+.current_played_form {
+    position: absolute;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    border: none;
+    background-color: #1ED760;
+    display: grid;
+    place-items: center;
+    bottom: 10px;
+    right: 10px;
+    box-shadow: 0 10px 20px rgb(0, 0, 0, 0.5);
+}
+
+.pause {
+    width: 0;
+    height: 0;
+    border-top: 0.7rem solid transparent;
+    border-left: 1.16rem solid #000000;
+    border-bottom: 0.7rem solid transparent;
+    margin-left: 0.24rem;
+}
+
+.played {
+    width: 18px;
+    height: 22px;
+    background-color: #000000;
+    display: grid;
+    place-items: center;
+}
+
+.played div {
+    width: 8px;
+    height: 100%;
+    background: #1ED760;
 }

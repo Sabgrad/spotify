@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from "react";
+import React, { useContext, useState, useRef, useEffect } from "react";
 import styles from '../syles/SongForm.module.css';
 import noimage from '../media/noimage.png';
 import { duration } from '../hooks/duration';
@@ -26,6 +26,10 @@ const SongForm = (props) => {
 
     const [isOpen, setIsOpen] = useState(false)
 
+    useEffect(() => {
+        console.log(isOpen)
+    }, [isOpen])
+
     const dateAdded = () => {
         if(dateadd !== undefined && dateadd !== null && dateadd !== NaN) return (
             <div className={styles.date_added_cont}>
@@ -36,25 +40,11 @@ const SongForm = (props) => {
         )
     }
 
-    const Audio = (event) => {
-        if(event.target.tagName === 'DIV') {
+    const Audio = (e) => {
+        if(!menuRef.current.contains(e.target)) {
             setAudioLink(audio)
         }
     }
-
-    useEffect(() => {
-        const handler = (event) => {
-            if(!menuRef.current.contains(event.target)) {
-                setIsOpen(false)
-            }
-        }
-
-        document.addEventListener('mousedown', handler)
-
-        return () => {
-            document.removeEventListener('mousedown', handler)
-        }
-    }, [])
 
     return(
         <div className={styles.songform_container} onClick={(e) => Audio(e)}>
@@ -89,7 +79,12 @@ const SongForm = (props) => {
             </div>
             <div ref={menuRef} className={styles.interaction_cont}>
                 <button className={styles.interaction_button} onClick={() => setIsOpen(true)}/>
-                {isOpen && <DropMenu artist={props.artist} artistid={props.artistid} trackid={props.trackid}/>}
+                {isOpen && <DropMenu 
+                    artist={props.artist} 
+                    artistid={props.artistid} 
+                    trackid={props.trackid} 
+                    setIsOpen={setIsOpen}
+                />}
             </div>
         </div>
     )

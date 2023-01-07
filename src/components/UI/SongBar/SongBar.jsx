@@ -1,8 +1,5 @@
-import React, { useContext } from "react";
-import { useState } from "react";
-import { useRef } from "react";
-import { useEffect } from "react";
-import { DataWithAudio, LinkOnAudio } from "../../../context/context";
+import React, { useContext, useState, useRef, useEffect } from "react";
+import { DataWithAudio, LinkOnAudio, PlayedOrNot } from "../../../context/context";
 import styles from './SongBar.module.css'
 
 const SongBar = () => {
@@ -11,15 +8,13 @@ const SongBar = () => {
 
     const {dataAudio, setDataAudio} = useContext(DataWithAudio)
 
+    const { isPlaying, setIsPlaying } = useContext(PlayedOrNot)
+
     const [audio, setAudio] = useState('')
 
     const [songNumber, setSongNumber] = useState(0)
 
-    const [isPlaying, setIsPlaying] = useState(false)
-
     const audioElem = useRef()
-
-    // console.log(dataAudio)
 
     useEffect(() => {
         dataAudio.forEach((song, index) =>  {

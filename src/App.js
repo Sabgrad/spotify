@@ -2,7 +2,7 @@ import './App.css';
 import React, { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 // import AppRouter from './components/AppRouter';
-import { AuthContext, DataWithAudio, LinkOnAudio, UserPlayLists } from './context/context';
+import { AuthContext, DataWithAudio, LinkOnAudio, UserPlayLists, IDList, PlayedOrNot } from './context/context';
 import LeftMenu from './components/UI/LeftMenu/LeftMenu';
 import MainWindow from './components/UI/MainWindow/MainWindow';
 import SongBar from './components/UI/SongBar/SongBar';
@@ -14,6 +14,8 @@ function App() {
     const [audioLink, setAudioLink] = useState('')
     const [dataAudio, setDataAudio] = useState([])
     const [userPlaylists, setUserPlaylists] = useState([])
+    const [idList, setIdList] = useState('')
+    const [isPlaying, setIsPlaying] = useState(false)
 
     return (
         <div className="App">
@@ -29,9 +31,17 @@ function App() {
                 dataAudio,
                 setDataAudio
             }}>
-            <UserPlayLists.Provider value ={{
+            <UserPlayLists.Provider value={{
                 userPlaylists,
                 setUserPlaylists
+            }}>
+            <IDList.Provider value={{
+                idList,
+                setIdList
+            }}>
+            <PlayedOrNot.Provider value={{
+                isPlaying,
+                setIsPlaying
             }}>
                 <BrowserRouter>
                     <LeftMenu/>
@@ -40,6 +50,8 @@ function App() {
                     <SongBar/>
                     {/* <AppRouter/> */}
                 </BrowserRouter>
+            </PlayedOrNot.Provider>
+            </IDList.Provider>
             </UserPlayLists.Provider>
             </DataWithAudio.Provider>
             </LinkOnAudio.Provider>

@@ -9,13 +9,13 @@ import SpotifyService from "../API/SpotifyService";
 
 const Artist = () => {
 
+    let url = window.location.href
+
     const {token} = useContext(AuthContext)
 
     const {dataAudio, setDataAudio} = useContext(DataWithAudio)
 
     const params = useParams()
-
-    const [url, setUrl] = useState(window.location.href)
 
     const [artist, setArtist] = useState([])
 
@@ -54,8 +54,6 @@ const Artist = () => {
         }
         // eslint-disable-next-line
     }, [params.id])
-
-    console.log(artistTopTrack)
 
     useEffect(() => {
             setDataAudio([])

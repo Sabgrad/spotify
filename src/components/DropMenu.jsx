@@ -1,4 +1,4 @@
-import React, { useState , useContext} from 'react';
+import React, { useState , useContext, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext, UserPlayLists } from '../context/context';
 import SpotifyService from '../API/SpotifyService';
@@ -10,8 +10,10 @@ const DropMenu = (props) => {
         artist, 
         artistid,
         trackid,
+        setIsOpen,
     } = props;
 
+    const dropMenuRef = useRef()
 
     const {userPlaylists, } = useContext(UserPlayLists)
 
@@ -41,8 +43,23 @@ const DropMenu = (props) => {
         )
     }
 
+    useEffect(() => {
+        const click = (e) => {
+            if(!dropMenuRef.current.contains(e.target)) {
+                setIsOpen(false)
+                
+            }
+        }
+
+        document.addEventListener('mousedown', click)
+
+        return () => {
+            document.removeEventListener('mousedown', click)
+        }
+    }, [])
+
     return (
-        <div className={styles.cont}>
+        <div ref={dropMenuRef} className={styles.cont}>
             <ul className={styles.main_ul}>
                 <span className={styles.category_title} >Add to playlist
                     <ul className={styles.sub_ul}>

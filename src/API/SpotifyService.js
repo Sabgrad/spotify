@@ -113,18 +113,17 @@ export default class SpotifyService {
         }) 
     }
 
-    static async getFollowContentUser(queryType, token) {
+    static async getFollowContentUser(queryType, token, limit) {
         const {data} = await axios.get(`https://api.spotify.com/v1/me/${queryType}` , {
             headers: {
                 Authorization: `Bearer ${token}`,
             }, params: queryType === 'following' ? {
                 type: 'artist',
-                limit: 50,
+                limit: limit,
             } : {
-                limit: 50,
+                limit: limit,
             }
         })
         return data;
     }
-  
 }

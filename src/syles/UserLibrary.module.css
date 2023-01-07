@@ -44,12 +44,11 @@
 .liked_song_cont {
     margin: 30px 0 0 30px;
     background: linear-gradient(90deg, #430BEE, #8E8EE5);
-    height: minmax(340px, 340px);
+    height: 340px;
     width: 510px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    padding-top: 100px;
     position: relative;
 }
 
@@ -61,7 +60,7 @@
     font-weight: 600;
     margin-right: 10px;
     margin-left: 10px;
-    margin-top: 10px;
+    margin-top: 120px;
     height: 70px;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -76,7 +75,7 @@
     margin-right: 10px;
     margin-left: 10px;
     font-size: 2rem;
-    margin-top: 60px;
+    margin-top: 50px;
 }
 
 .liked_song_amount {
@@ -95,6 +94,7 @@
   }
 
 /* button for playing song*/ 
+/* make it a reusable component */
 
 .play_liked_song {
     position: absolute;
@@ -102,18 +102,33 @@
     height: 70px;
     width: 70px;
     border: none;
-    background-color: #1ED760;
+    background-color: transparent;
     display: grid;
     place-items: center;
     bottom: 10px;
-    right: 10px;
+    right: 20px;
+    box-shadow: 0 10px 20px transparent;
+    transition-duration: 0.3s;
+    transition-property: background-color, bottom, box-shadow;
 }
 
 .triangle {
     width: 0;
     height: 0;
     border-top: 1rem solid transparent;
-    border-left: 1.66rem solid #000000;
+    border-left: 1.66rem solid transparent;
     border-bottom: 1rem solid transparent;
     margin-left: 0.26rem;
+    transition-duration: 0.3s;
+    transition-property: border-left;
+}
+
+.liked_song_cont:hover .play_liked_song {
+    bottom: 20px;
+    background-color: #1ED760;
+    box-shadow: 0 10px 20px rgb(0, 0, 0, 0.5);
+}
+
+.liked_song_cont:hover .triangle {
+    border-left: 1.66rem solid #000000;
 }

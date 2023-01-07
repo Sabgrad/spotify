@@ -13,6 +13,7 @@ export const privateRoutes = [
     {path: '/playlist/:id', element: <Album/>},
     {path: '/artist/:id', element: <Artist/>},
     {path: '/user/:id', element: <User/>},
+    {path: '/collection', element: <Album/>}
 ]
 
 export const publicRoutes = [
