@@ -4,7 +4,6 @@ import styles from '../syles/FacialForm.module.css';
 import noimage from '../media/noimage.png';
 import { DataWithAudio, IDList, LinkOnAudio, PlayedOrNot } from "../context/context";
 import SpotifyService from "../API/SpotifyService";
-import { useMemo } from "react";
 
 const FacialForm = (props) => {
 
@@ -23,8 +22,6 @@ const FacialForm = (props) => {
     const {audioLink, setAudioLink} = useContext(LinkOnAudio)
 
     const { isPlaying, setIsPlaying } = useContext(PlayedOrNot)
-
-    const [numberClick, setNumberClick] = useState(0)
 
     const getTracks = async (type) => {
         if(type === 'album' || type === 'playlist') {
@@ -57,7 +54,6 @@ const FacialForm = (props) => {
     }
 
     useEffect(() => {
-        console.log(fullData)
         if(fullData.length !== 0) {
             setDataAudio([])
             if(type === 'playlist' || type === 'album') {
@@ -109,7 +105,6 @@ const FacialForm = (props) => {
                         playSongs();
                     }}
                 >
-                    {/* <div className={idList === id ? styles.triangle_played : styles.triangle}></div> */}
                     {btnPlayPause()}
                 </button>
             </div>

@@ -23,7 +23,6 @@ const SongBar = () => {
                 setSongNumber(index)
             } 
         })
-        // setIsPlaying(true)
     }, [dataAudio, audioLink])
 
     const nextprevious = (where) => {

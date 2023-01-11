@@ -46,7 +46,6 @@ const Album = () => {
     useEffect(() => {
         getListSongDuration();
         setDataAudio([])
-        
         dataSpotify.tracks?.items.map(song =>
             setDataAudio((current) => 
                 [...current, song.track ? song.track.preview_url : song.preview_url]

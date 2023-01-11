@@ -23,8 +23,6 @@ const DropMenu = (props) => {
         await SpotifyService.addItemToPlaylist(idPlaylist, idTrack, authtoken)
     }
 
-    // const [artistData, setArtistData] = useState([]);
-
     const router = useNavigate()
 
     const routerToArtist = (id) => {
@@ -33,7 +31,7 @@ const DropMenu = (props) => {
 
     const renderPlaylists = () => {
         return userPlaylists.map(playlist => 
-            <li key={playlist.id}><span onClick={() => {addTrackInPlaylist(playlist.id, trackid, token); console.log(playlist.id, trackid, token)}}>{playlist.name}</span></li>
+            <li key={playlist.id}><span onClick={() => addTrackInPlaylist(playlist.id, trackid, token)}>{playlist.name}</span></li>
         )
     }
 
@@ -47,7 +45,6 @@ const DropMenu = (props) => {
         const click = (e) => {
             if(!dropMenuRef.current.contains(e.target)) {
                 setIsOpen(false)
-                
             }
         }
 

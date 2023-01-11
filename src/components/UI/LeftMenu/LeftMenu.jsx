@@ -94,18 +94,20 @@ const LeftMenu = () => {
 
     return (
          <div className={styles.leftMenu}>
-            <div className={styles.LogoCont}>
+            
                 <img className={styles.Logo} src={Spotify_Logo_RGB_White} alt="" />
-            </div>
+            
             <div className={styles.LeftNavigation}>
                 <Link style={url.includes('home') === true ? leftListStyle : null} to='/home'>Home</Link>
                 <Link style={url.includes('search') === true ? leftListStyle : null} to='/search'>Search</Link>
                 <Link style={url.includes('library') === true ? leftListStyle : null} to='/library'>Your Library</Link>
                 <Link onClick={() => createPlaylist()}>Create Playlist</Link>
                 <Link style={url.includes('collection') === true ? leftListStyle : null}>Liked Songs</Link>
+                <a></a>
             </div>
             <div className={styles.UserPlayLists}>
-                {userPlaylist}
+                {token && userPlaylist}
+                <a></a>
             </div>
         </div>
     )

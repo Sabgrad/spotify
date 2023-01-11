@@ -56,12 +56,11 @@ const Artist = () => {
     }, [params.id])
 
     useEffect(() => {
-            setDataAudio([])
-            artistTopTrack.tracks?.map(song =>
-                setDataAudio((current) => 
-                    [...current, song.preview_url]
-                )
-            )
+        setDataAudio([])
+        artistTopTrack.tracks?.map(song =>
+            setDataAudio((current) => 
+                [...current, song.preview_url]
+        ))
     }, [artistTopTrack])
 
     return (

@@ -6,7 +6,6 @@ const MainWindow = () => {
     
     return (
         <div className={styles.mainWindow}>
-            {/* <TopMenu/> */}
             <AppRouter/>
         </div>
     )

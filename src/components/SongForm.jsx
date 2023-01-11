@@ -26,10 +26,6 @@ const SongForm = (props) => {
 
     const [isOpen, setIsOpen] = useState(false)
 
-    useEffect(() => {
-        console.log(isOpen)
-    }, [isOpen])
-
     const dateAdded = () => {
         if(dateadd !== undefined && dateadd !== null && dateadd !== NaN) return (
             <div className={styles.date_added_cont}>

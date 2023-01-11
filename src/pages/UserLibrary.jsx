@@ -39,8 +39,7 @@ const UserLibrary = () => {
             setLikedSong(data)
         } else {
             setContentData(data)
-        }
-        
+        }  
     }
 
     useEffect(() => {
@@ -66,10 +65,9 @@ const UserLibrary = () => {
             likedSong.items.map(song => 
                 setDataAudio(current => 
                     [...current, song.track.preview_url]    
-                )
-            )
+            ))
             setAudioLink(likedSong.items[0].track.preview_url)
-        } 
+        }
     }
 
     const renderContent = useMemo(() => {
