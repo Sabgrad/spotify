@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import {
     CLIENT_ID,
     REDIRECT_URI,
-    AUTH_ENDPOINT,
+    AUTH_ENDPOINT_CODE,
     RESPONSE_TYPE,
     CLIENT_SECRET,
     SCOPE,
@@ -60,7 +60,7 @@ const TopMenu = () => {
     return (
         <div className={styles.topMenu}>
             {!token ?
-            <MyButton onClick={() => window.location.href = `${AUTH_ENDPOINT}?response_type=${RESPONSE_TYPE}&client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}`}>
+            <MyButton onClick={() => window.location.href = `${AUTH_ENDPOINT_CODE}?response_type=${RESPONSE_TYPE}&client_id=${CLIENT_ID}&scope=${SCOPE}&redirect_uri=${REDIRECT_URI}`}>
                 Log in
             </MyButton>
             :

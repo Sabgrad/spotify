@@ -52,7 +52,7 @@ const Search = () => {
 
     const renderSongs = () => {
         return objectSpotify.map((track, index) =>
-            <SongForm 
+            <SongForm
                 index={index}
                 key={track.id}
                 trackid={track.id}

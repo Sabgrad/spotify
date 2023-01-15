@@ -4,7 +4,26 @@
     grid-column-start: 1;
     grid-column-end: 3;
     height: 75px;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* left */
+
+.left_side {
+    margin-left: 30px;
+    min-width: 170px;
+}
+
+.title {
+    background-color: #171717;
+    color: beige;
+}
+
+/* middle */
+
+.middle_side {
+    min-width: 170px;
 }
 
 .btn {
@@ -15,4 +34,27 @@
 .btn:hover {
     background: white;
     color: #171717;
+}
+
+.timeBar {
+    height: 5px;
+    background-color: grey;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.listeningTime {
+    background-color: #1ED760;
+    height: 100%;
+    border-radius: 5px;
+    width: 0%;
+}
+
+/* right */
+
+.right_side {
+    margin-right: 30px;
+    min-width: 170px;
+    justify-content: flex-end;
+    display: flex;
 }

@@ -10,40 +10,43 @@ const SongBar = () => {
 
     const { isPlaying, setIsPlaying } = useContext(PlayedOrNot)
 
-    const [audio, setAudio] = useState('')
+    const [currentSongTime, setCurrentSongTime] = useState(0)
 
-    const [songNumber, setSongNumber] = useState(0)
+    const [songDuration, setSongDuration] = useState(0)
+
+    const [currentSong, setCurrentSong] = useState([])
 
     const audioElem = useRef()
 
+    const songBarRef = useRef()
+
     useEffect(() => {
         dataAudio.forEach((song, index) =>  {
-            if(audioLink === song) {
-                setAudio(song)
-                setSongNumber(index)
+            if(audioLink === song.url) {
+                setIsPlaying(true)
+                setCurrentSong(dataAudio[index])
             } 
         })
-    }, [dataAudio, audioLink])
+    }, [audioLink])
+
+    useEffect(() => {console.log(dataAudio)}, [dataAudio])
+
+    useEffect(() => {console.log(currentSong)}, [currentSong])
 
     const nextprevious = (where) => {
+        const index = dataAudio.findIndex(current => current.url === currentSong.url)
         if(where === 'next') {
-            if(songNumber < dataAudio.length - 1) {
-                setAudio(dataAudio[songNumber + 1])
-                setSongNumber(songNumber + 1)
-            }
-            if(songNumber === dataAudio.length - 1) {
-                setAudio(dataAudio[0])
-                setSongNumber(0)
+            if(index === dataAudio.length - 1) {
+                setCurrentSong(dataAudio[0])
+            } else {
+                setCurrentSong(dataAudio[index + 1])
             }
         }
         if(where === 'previous') {
-            if(songNumber > 0) {
-                setAudio(dataAudio[songNumber - 1])
-                setSongNumber(songNumber - 1)
-            }
-            if(songNumber === 0) {
-                setAudio(dataAudio[dataAudio.length - 1])
-                setSongNumber(dataAudio.length - 1)
+            if(index === 0) {
+                setCurrentSong(dataAudio[dataAudio.length - 1])
+            } else {
+                setCurrentSong(dataAudio[index - 1])
             }
         }
         if(isPlaying === false) {
@@ -63,12 +66,38 @@ const SongBar = () => {
         }
     }, [isPlaying])
 
+    const onPlaying = () => {
+        const songDurationFunc = audioElem.current.duration
+        const curretnTime = audioElem.current.currentTime
+        setCurrentSongTime(curretnTime / songDuration * 100)
+        setSongDuration(songDurationFunc)
+    }
+
+    const getWidth = (e) => {
+        let width = songBarRef.current.clientWidth;
+        const offset = e.nativeEvent.offsetX;
+
+        const divprogress = offset / width * 100;
+        audioElem.current.currentTime = divprogress / 100 * songDuration;
+    }
+
     return (
         <div className={styles.songBar}>
-            <button onClick={() => nextprevious('previous')} className={styles.btn}> back </button>
-            <button onClick={PlayPause} className={styles.btn}>play-payse</button>
-            <button onClick={() => nextprevious('next')} className={styles.btn}> forward </button>
-            <audio ref={audioElem} src={audio} controls autoPlay> </audio>
+            <audio ref={audioElem} onTimeUpdate={onPlaying} src={currentSong.url} controls  style={{display: 'none'}}> </audio>
+            <div className={styles.left_side}>
+                <span className={styles.title}>{currentSong.title}</span>
+            </div>
+            <div className={styles.middle_side}>
+                <button onClick={() => nextprevious('previous')} className={styles.btn}> back </button>
+                <button onClick={PlayPause} className={styles.btn}>play-payse</button>
+                <button onClick={() => nextprevious('next')} className={styles.btn}> forward </button>
+                <div className={styles.timeBar} onClick={getWidth} ref={songBarRef}>
+                    <div className={styles.listeningTime} style={{width: `${currentSongTime+'%'}`}}></div>
+                </div>
+            </div>
+            <div className={styles.right_side}>
+                <span >123</span>
+            </div>
         </div>
     )
 }

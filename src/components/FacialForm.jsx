@@ -74,7 +74,6 @@ const FacialForm = (props) => {
                 )
                 setAudioLink(fullData.tracks[0].preview_url)
             }
-            
         }
     }, [fullData])
 
