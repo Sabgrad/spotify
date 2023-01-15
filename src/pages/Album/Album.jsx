@@ -44,11 +44,17 @@ const Album = () => {
     }, [params.id])
 
     useEffect(() => {
+        console.log(dataSpotify)
         getListSongDuration();
         setDataAudio([])
         dataSpotify.tracks?.items.map((song, index) =>
             setDataAudio((current) => 
-                [...current, {url: song.track ? song.track.preview_url : song.preview_url, title: song.track ? song.track.name : song.name}]
+                [...current, {
+                    url: song.track ? song.track.preview_url : song.preview_url, 
+                    title: song.track ? song.track.name : song.name,
+                    artists: song.track ? song.track.artists.map(artist => ({name: artist.name, id: artist.id})) : song.artists.map(artist => ({name: artist.name, id: artist.id})),
+                    image: song.track ? (song.track.album.images.length && song.track.album?.images[0]?.url) : (dataSpotify.images.length && dataSpotify.images[0].url)
+                }]
             )
         )
     }, [dataSpotify])

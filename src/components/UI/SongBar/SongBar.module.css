@@ -1,11 +1,11 @@
 .songBar {
-    background: pink;
+    background: #181818;
     display: flex;
     grid-column-start: 1;
     grid-column-end: 3;
-    height: 75px;
+    height: 100px;
     align-items: center;
-    justify-content: space-between;
+    position: relative;
 }
 
 /* left */
@@ -13,17 +13,48 @@
 .left_side {
     margin-left: 30px;
     min-width: 170px;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 0;
+}
+
+.img_cont {
+    height: 70px;
+    width: 70px;
+}
+
+.song_img {
+    height: 70px;
+    width: 70px;
+}
+
+.name_title_cont {
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+    justify-content: space-between;
 }
 
 .title {
-    background-color: #171717;
-    color: beige;
+    font-weight: 600;
+    color: white;
+    margin-top: 10px;
+}
+
+.name {
+    color: white;
+    margin-bottom: 10px;
 }
 
 /* middle */
 
 .middle_side {
     min-width: 170px;
+    position: absolute;
+    margin-left: 30%;
+    width: 40%;
+    z-index: 1;
 }
 
 .btn {
@@ -38,13 +69,13 @@
 
 .timeBar {
     height: 5px;
-    background-color: grey;
-    width: 200px;
+    background-color: #5E5E5E;
+    width: 100%;
     border-radius: 5px;
 }
 
 .listeningTime {
-    background-color: #1ED760;
+    background-color: white;
     height: 100%;
     border-radius: 5px;
     width: 0%;
@@ -57,4 +88,19 @@
     min-width: 170px;
     justify-content: flex-end;
     display: flex;
+    position: absolute;
+    right: 0;
+}
+
+.volume_bar {
+    width: 100px;
+    height: 5px;
+    border-radius: 5px;
+    background-color: #5E5E5E;
+}
+
+.current_volume {
+    height: 5px;
+    border-radius: 5px;
+    background-color: white;
 }

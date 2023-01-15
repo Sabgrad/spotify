@@ -12,7 +12,7 @@ import {
     RESPONSE_TYPE,
     CLIENT_SECRET,
     SCOPE,
-} from '../../../common/common.js'
+} from '../../../common/common.js';
 
 const TopMenu = () => {
     
@@ -40,6 +40,7 @@ const TopMenu = () => {
     const refresh = async () => {
         const data = await SpotifyService.refreshToken(refresToken, CLIENT_ID, CLIENT_SECRET)
         setToken(data.access_token)
+        window.localStorage.setItem('token', data.access_token)
     }
 
     useEffect(() => {
