@@ -12,17 +12,20 @@ const SongBar = () => {
 
     const [currentSong, setCurrentSong] = useState([])
 
-    const [currentSongTime, setCurrentSongTime] = useState(0)
-
-    const [songDuration, setSongDuration] = useState(0)
-
-    const [currentVolume, setCurrentVolume] = useState(100)
-
+    const [songTimeBar, setSongTimeBar] = useState({
+        duration: 0,
+        currenttime: 0,
+        volume: 50,
+    })
     const audioElem = useRef()
 
     const songBarRef = useRef()
 
     const volumeBarRef = useRef()
+
+    useEffect(() => {
+        audioElem.current.volume = 0.5;
+    }, [])
 
     useEffect(() => {
         dataAudio.forEach((song, index) =>  {
@@ -71,27 +74,40 @@ const SongBar = () => {
     }, [isPlaying])
 
     const onPlaying = () => {
-        const songDurationFunc = audioElem.current.duration
-        const curretnTime = audioElem.current.currentTime
-        setCurrentSongTime(curretnTime / songDuration * 100)
-        setSongDuration(songDurationFunc)
+        const songduration = audioElem.current.duration;
+        const currentsongtime = audioElem.current.currentTime;
+        const time = currentsongtime / songduration * 100;
+        setSongTimeBar(current => ({
+            ...current,
+            duration: songduration, 
+            currenttime: time
+        }))
     }
 
     const getTimeBar = (e) => {
         let width = songBarRef.current.clientWidth;
         const offset = e.nativeEvent.offsetX;
-
         const divprogress = offset / width * 100;
-        audioElem.current.currentTime = divprogress / 100 * songDuration;
+        audioElem.current.currentTime = divprogress / 100 * songTimeBar.duration;
     }
 
     const getVolumeBar = (e) => {
         let width = volumeBarRef.current.clientWidth;
         const offset = e.nativeEvent.offsetX;
         const divprogress = offset / width;
+        console.log(divprogress)
+        let volume = divprogress * 100;
         audioElem.current.volume = divprogress;
-        setCurrentVolume(divprogress * 100)
+        setSongTimeBar(current => ({
+            ...current,
+            volume: volume,
+        }))
+        console.log('vizval function')
     }
+
+    useEffect(() => {
+        console.log(songTimeBar)
+    }, [songTimeBar])
 
     return (
         <div className={styles.songBar}>
@@ -110,12 +126,12 @@ const SongBar = () => {
                 <button onClick={PlayPause} className={styles.btn}>play-payse</button>
                 <button onClick={() => nextprevious('next')} className={styles.btn}> forward </button>
                 <div className={styles.timeBar} onClick={getTimeBar} ref={songBarRef}>
-                    <div className={styles.listeningTime} style={{width: `${currentSongTime+'%'}`}}></div>
+                    <div className={styles.listeningTime} style={{width: `${songTimeBar.currenttime+'%'}`}}></div>
                 </div>
             </div>
             <div className={styles.right_side}>
                 <div className={styles.volume_bar} ref={volumeBarRef} onClick={getVolumeBar}>
-                    <div className={styles.current_volume} style={{width: `${currentVolume+'%'}`}}></div>
+                    <div className={styles.current_volume} style={{width: `${songTimeBar.volume+'%'}`}}></div>
                 </div>
             </div>
         </div>
