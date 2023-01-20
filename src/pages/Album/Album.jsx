@@ -44,7 +44,6 @@ const Album = () => {
     }, [params.id])
 
     useEffect(() => {
-        console.log(dataSpotify)
         getListSongDuration();
         setDataAudio([])
         dataSpotify.tracks?.items.map((song, index) =>

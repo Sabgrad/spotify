@@ -38,12 +38,12 @@
 
 .title {
     font-weight: 600;
-    color: white;
+    color: #FFFFFF;
     margin-top: 10px;
 }
 
 .name {
-    color: white;
+    color: #FFFFFF;
     margin-bottom: 10px;
 }
 
@@ -54,28 +54,153 @@
     position: absolute;
     margin-left: 30%;
     width: 40%;
+    height: 100%;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
 }
 
-.btn {
-    background: #171717;
-    color: wheat;
+.btn_cont {
+    display: flex;
+    margin-bottom: 25px;
+    justify-content: space-between;
+    width: 240px;
 }
 
-.btn:hover {
-    background: white;
-    color: #171717;
+.btn_cont button {
+    border-radius: 50%;
+    border: none;
+    height: 40px;
+    width: 40px;
 }
+
+/* play songs in random order button  */
+
+.btn_random {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+}
+
+.image_random {
+    height: 31px;
+}
+/* back button */
+
+.btn_back {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    rotate: 180deg;
+    background: none;
+}
+
+.btn_back:hover .div_square {
+    background-color: #FFFFFF;
+}
+
+.btn_back:hover .div_triangle {
+    border-left: 1.16rem solid #FFFFFF;
+}
+
+/* play-pause button */
+
+.btn_play_pause {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FFFFFF;
+}
+
+.pause {
+    width: 0;
+    height: 0;
+    border-top: 0.7rem solid transparent;
+    border-left: 1.16rem solid #000000;
+    border-bottom: 0.7rem solid transparent;
+    margin-left: 0.24rem;
+}
+
+.played {
+    width: 18px;
+    height: 22px;
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.played div {
+    width: 8px;
+    height: 100%;
+    background: #FFFFFF;
+}
+
+/* forawrd button */
+
+.btn_forward {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: none;
+}
+
+.div_triangle {
+    height: 0;
+    width: 0;
+    border-top: 0.7rem solid transparent;
+    border-left: 1.16rem solid #BABABA;
+    border-bottom: 0.7rem solid transparent;
+}
+
+.div_square {
+    width: 4px;
+    height: 20px;
+    background-color: #BABABA;
+    position: absolute;
+    margin-left: 15px;
+}
+
+.btn_forward:hover .div_square {
+    background-color: #FFFFFF;
+}
+
+.btn_forward:hover .div_triangle {
+    border-left: 1.16rem solid #FFFFFF;
+}
+
+/* circle list or circle 1 song button */
+
+.btn_circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+}
+
+.image_repeat {
+    height: 25px;
+}
+
+/* time bar */
 
 .timeBar {
     height: 5px;
     background-color: #5E5E5E;
     width: 100%;
     border-radius: 5px;
+    margin-bottom: 15px;
 }
 
 .listeningTime {
-    background-color: white;
+    background-color: #FFFFFF;
     height: 100%;
     border-radius: 5px;
     width: 0%;
@@ -102,5 +227,5 @@
 .current_volume {
     height: 5px;
     border-radius: 5px;
-    background-color: white;
+    background-color: #FFFFFF;
 }

@@ -59,7 +59,12 @@ const FacialForm = (props) => {
             if(type === 'playlist' || type === 'album') {
                 fullData.tracks.items.map(song => {
                         setDataAudio((current) => 
-                            [...current, song.track ? song.track.preview_url : song.preview_url]
+                            [...current, {
+                                url: song.track ? song.track.preview_url : song.preview_url, 
+                                title: song.track ? song.track.name : song.name,
+                                artists: song.track ? song.track.artists.map(artist => ({name: artist.name, id: artist.id})) : song.artists.map(artist => ({name: artist.name, id: artist.id})),
+                                image: song.track ? (song.track.album.images.length && song.track.album?.images[0]?.url) : (fullData.images.length && fullData.images[0].url)
+                            }]
                         )
                     }
                 )
@@ -68,7 +73,12 @@ const FacialForm = (props) => {
             if(type === 'artist') {
                 fullData.tracks.map(song => {
                         setDataAudio((current) => 
-                            [...current, song.preview_url]
+                            [...current, {
+                                url: song.preview_url, 
+                                title: song.name,
+                                artists: song.artists.map(artist => ({name: artist.name, id: artist.id})),
+                                image: song.album.images[0].url,
+                            }]
                         )
                     } 
                 )
@@ -84,7 +94,6 @@ const FacialForm = (props) => {
         if(idList === id && isPlaying === false) return (
             <div className={styles.pause}></div>
         )
-
         if(idList !== id) return (
             <div className={styles.triangle}></div>
         )

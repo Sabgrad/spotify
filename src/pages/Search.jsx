@@ -33,11 +33,17 @@ const Search = () => {
     }
 
     useEffect(() => {
+        console.log(objectSpotify)
         if(typeQuery === 'track') {
             setDataAudio([])
             objectSpotify.map(song =>
                 setDataAudio((current) => 
-                    [...current, song.preview_url]
+                [...current, {
+                    url: song.preview_url, 
+                    title: song.name,
+                    artists: song.artists.map(artist => ({name: artist.name, id: artist.id})),
+                    image: song.album.images[0].url,
+                }]
                 )
             )
         }
